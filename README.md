@@ -3,18 +3,22 @@
 - [Js-Output](#js-output)
 - [Js-Programs](#js-programs)
 - [Js-Statements](#js-statements)
-- [Js-syntax](#js-syntax)
+- [Js-Syntax](#js-syntax)
+- [Js-Comment](#js-comment)
+- [Js-Variable](#js-variable)
+- [Js-Let](#js-let)
+- [Js-Const](#js-const)
 
 
 
 # Js-output
 - JavaScript can "display" data in different ways:
- ```
+ 
       Writing into an HTML element, using innerHTML.
       Writing into the HTML output using document.write().
       Writing into an alert box, using window.alert().
       Writing into the browser console, using console.log().
-  ```
+  
   
 # Js-programs
   - A computer program is a list of "instructions" to be "executed" by a computer.
@@ -61,7 +65,10 @@
        Ex:- 12.3 : 1265
  
 2. Strings are text, written within double or single quotes.
- ```Ex:- "Anupam Rai" & 'Anupam Rai'
+ 
+ 
+       Ex:- "Anupam Rai" & 'Anupam Rai'
+ 
 ### Variables
 - In a programming language, variables are used to store data values.
 - JavaScript uses the keywords var, let and const to declare variables.
@@ -174,20 +181,20 @@
 - Creating a variable in JavaScript is called "declaring" a variable.
 - You declare a JavaScript variable with the ``` var ``` keyword.
 
-   ``` var personName; ```
+       var personName;
 - After the declaration, the variable has no value (value of undefined).To assign a value to the variable, use the equal sign.
 
-   ``` personName = "Anupam"; ```
+      personName = "Anupam";
 - You can also assign a value to the variable when you declare it.
 
-  ``` var carName = "Volvo"; ```
+      var carName = "Volvo";
 * It's a good programming practice to declare all variables at the beginning of a script.
 
 ### One Statement, Many Variables
 - You can declare many variables in one statement.
 - Start the statement with var and separate the variables by comma.
 
-   ``` var person = "Anupam Rai", carName = "Bolero", price = 1200000; ```
+      var person = "Anupam Rai", carName = "Bolero", price = 1200000;
 - A declaration can span multiple lines
 
        var person = "Anupam Rai",
@@ -198,4 +205,267 @@
 - A variable declared without a value will have the value undefined.
 - The variable carName will have the value undefined after the execution of this statement.
 
-  ``` var carName; ```
+      var carName;
+  
+### Re-Declaring Variables
+- If you re-declare a JavaScript variable, it will not lose its value.
+- The variable carName will still have the value "Bolero" after the execution of these statements.
+  
+      var carName = "Volvo";
+      var carName;
+      
+### Arithmetic variables
+- As with algebra, you can do arithmetic with JavaScript variables, using operators like = and +.
+ 
+      var x = 5 + 2 + 3;
+- You can also add strings, but strings will be concatenated.
+
+      var x = "John" + " " + "Doe";
+- If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.
+
+      var x = "5" + 2 + 3;
+-  JavaScript treats a dollar sign as a letter, identifiers containing $ are valid variable names.
+
+       var $$$ = "Hello World";
+       var $ = 2;
+       var $myMoney = 5;
+- JavaScript treats underscore as a letter, identifiers containing _ are valid variable names:
+
+      var _lastName = "Johnson";
+      var _x = 2;
+      var _100 = 5;
+      
+      
+ # Js-Let
+ - The let keyword was introduced in ES6 (2015).
+ - Variables defined with let cannot be Redeclared.
+ - Variables defined with let must be Declared before use.
+ - Variables defined with let have Block Scope.
+
+
+ ### Block Scope
+ - Before ES6 (2015), JavaScript had only Global Scope and Function Scope.
+ - ES6 introduced two important new JavaScript keywords ``` let ``` and ``` const ```.
+ - These two keywords provide Block Scope in JavaScript.
+ - Variables declared inside a { } block cannot be accessed from outside the block.
+
+       {
+         let x = 2;
+       }
+ - Variables declared with the``` var ``` keyword can NOT have block scope.
+ - Variables declared inside a { } block can be accessed from outside the block.
+
+       {
+         var x = 2;
+       } 
+       
+### Redeclaring Variables
+- Redeclaring a variable using the``` var ``` keyword can impose problems.
+- Redeclaring a variable inside a block will also redeclare the variable outside the block.
+
+       var x = 11;
+       
+       {
+         var x = 2;
+       } 
+       //2
+       
+- Redeclaring a variable using the ``` let ``` keyword can solve this problem.
+- Redeclaring a variable inside a block will not redeclare the variable outside the block.
+
+       let x = 11;
+       
+       {
+         let x = 2;
+       } 
+       //11
+       
+- Redeclaring a JavaScript variable with ``` var ``` is allowed anywhere in a program.
+
+      var x = 4;
+      var x = 5;
+      //3
+      
+- With ``` let ```, redeclaring a variable in the same block is NOT allowed:
+
+      var x = 2;    // Allowed
+      let x = 3;    // Not allowed
+
+      {
+      let x = 2;    // Allowed
+      let x = 3     // Not allowed
+      }
+
+      {
+      let x = 2;    // Allowed
+      var x = 3     // Not allowed
+      }
+      
+- Redeclaring a variable with ``` let ```, in another block, IS allowed:
+
+      let x = 2;    // Allowed
+
+      {
+      let x = 3;    // Allowed
+      }
+
+      {
+      let x = 4;    // Allowed
+      }
+      //2
+      
+### Let Hoisting
+- Variables defined with ``` var ``` are hoisted to the top and can be initialized at any time.
+- Meaning: You can use the variable before it is declared.
+
+      carName = "Bolero";
+      var carName;
+      //Bolero
+      
+- Variables defined with ``` let ``` are also hoisted to the top of the block, but not initialized.
+- Meaning: Using a ``` let ``` variable before it is declared will result in a ReferenceError.
+
+      carName = "Saab";
+      let carName = "Volvo";
+      //ReferenceError
+      
+# Js-Const
+- The ``` const ``` keyword was introduced in ES6 (2015).
+- Variables defined with ``` const ``` cannot be Redeclared.
+- Variables defined with ``` const ``` cannot be Reassigned.
+- Variables defined with ``` const ``` have Block Scope.
+- A const variable cannot be reassigned.
+
+      const PI = 3.141592653589793;
+      PI = 3.14;    
+      PI = PI + 10;
+      // This will give an error
+      
+- JavaScript ``` const ``` variables must be assigned a value when they are declared.
+
+      const PI = 3.14159265359;
+      //Correct
+      
+            const PI;
+            PI = 3.14159265359;
+            //Incorrect
+
+- As a general rule, always declare a variable with ``` const ``` unless you know that the value will change.
+- Use ``` const ``` when you declare:
+   - A new Array
+   - A new Object
+   - A new Function
+   - A new RegExp
+   
+### Constant Objects and  Arrays
+- The keyword ``` const ``` is a little misleading. It does not define a constant value. It defines a constant reference to a value.
+- Because of this you can NOT:
+    - Reassign a constant value
+    - Reassign a constant array
+    - Reassign a constant object
+    
+But you CAN:
+  - Change the elements of constant array
+  - Change the properties of constant object
+
+### Constant Arrays
+- We can change the elements of a constant array.
+
+      const cars = ["Saab", "Volvo", "BMW"];
+      cars[0] = "Toyota";
+      cars.push("Audi");
+      // You can add an element:
+         Toyota,Volvo,BMW,Audi
+         
+- But you can NOT reassign the array.
+
+      const cars = ["Saab", "Volvo", "BMW"];
+      cars = ["Toyota", "Volvo", "Audi"];    
+      // ERROR
+      
+### Constant Objects
+- You can change the properties of a constant object.
+
+      const car = {type:"Fiat", model:"500", color:"white"};
+      car.color = "red";
+      car.owner = "Johnson";
+      // You can add a property:
+      
+- But you can NOT reassign the object.
+
+      const car = {type:"Fiat", model:"500", color:"white"};
+      car = {type:"Volvo", model:"EX60", color:"red"};    
+      // ERROR
+  
+### Block Scope
+- Declaring a variable with ``` const ``` is similar to ``` let ``` when it comes to Block Scope.
+
+      const x = 10;
+      {
+      const x = 2;
+      }
+      //10
+    
+### Redeclaring
+- Redeclaring a JavaScript ``` var ``` variable is allowed anywhere in a program.
+
+      var x = 2;     
+      var x = 3;     
+      x = 4;         
+      // Allowed
+      
+- Redeclaring an existing ``` var ``` or ``` let ``` variable to const, in the same scope, is not allowed.
+
+      var x = 2;     // Allowed
+      const x = 2;   // Not allowed
+
+      {
+      let x = 2;     // Allowed
+      const x = 2;   // Not allowed
+      }
+
+      {
+      const x = 2;   // Allowed
+      const x = 2;   // Not allowed
+      }
+      
+- Reassigning an existing ``` const ``` variable, in the same scope, is not allowed.
+
+      const x = 2;     // Allowed
+      x = 2;           // Not allowed
+      var x = 2;       // Not allowed
+      let x = 2;       // Not allowed
+      const x = 2;     // Not allowed
+
+      {
+        const x = 2;   // Allowed
+        x = 2;         // Not allowed
+        var x = 2;     // Not allowed
+        let x = 2;     // Not allowed
+        const x = 2;   // Not allowed
+      }
+- Redeclaring a variable with ``` const ```, in another scope, or in another block, is allowed:
+
+      const x = 2;       // Allowed
+
+      {
+        const x = 3;   // Allowed
+      }
+
+      {
+        const x = 4;   // Allowed
+      }
+      
+ ### Const Hoisting
+- Variables defined with ``` var ``` are hoisted to the top and can be initialized at any time.
+- Meaning: You can use the variable before it is declared.
+
+      carName = "Bolero";
+      var carName;
+      //Bolero
+- Variables defined with ``` const ``` are also hoisted to the top, but not initialized.
+- Meaning: Using a ``` const ``` variable before it is declared will result in a ReferenceError.
+
+      alert (carName);
+      const carName = "Volvo";
+      //ReferenceError
