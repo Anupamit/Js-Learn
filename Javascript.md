@@ -8,7 +8,9 @@
 - [Js-Variable](#js-variable)
 - [Js-Let](#js-let)
 - [Js-Const](#js-const)
-
+- [Js-Operators](#js-operators)
+- [Js-Datatype](#js-datatype)
+- [Js-Function](#js-function)
 
 
 # Js-output
@@ -469,3 +471,106 @@ But you CAN:
       alert (carName);
       const carName = "Volvo";
       //ReferenceError
+# Js-Operators
+- The assignment operator (=) assigns a value to a variable.
+- The addition operator (+) adds numbers.
+- The multiplication operator (*) multiplies numbers.
+- The addition assignment operator (+=) adds a value to a variable.
+- The + operator can also be used to add (concatenate) strings.
+
+# Js-Datatype
+- JavaScript variables can hold different data types: numbers, strings, objects and more.
+
+      let x;                                         // Now x is undefined
+      let length = 16;                               // Number
+      let lastName = "Johnson";                      // String
+      let x = {firstName:"John", lastName:"Doe"};    // Object
+      
+### Number
+- JavaScript has only one type of numbers, Numbers can be written with, or without decimals.
+
+    let x = 16.2;                                         
+    let x = 16; 
+    
+### Boolean
+- Booleans can only have two values ``` true ``` or ``` false ```.
+
+      let x = 3;
+      let y = 3;
+      let z = 5;
+      (x == y)       // Returns true
+      (x == z)       // Returns false
+      
+### Arrays
+- JavaScript ```arrays``` are written with square brackets.
+- ```Array``` items are separated by commas.
+
+      const cars = ["Bolero", "Pickup", "I20"];
+      cars[1] //pickup
+
+### Object
+- JavaScript ```objects``` are written with curly braces {}.
+- ```Object``` properties are written as name:value pairs, separated by commas.
+
+      const person = {firstName:"Anupam", lastName:"Rai", age:25, eyeColor:"black"};
+### typeof Operator
+- You can use the JavaScript ```typeof``` operator to find the type of a JavaScript variable.
+- The ```typeof``` operator returns the type of a variable or an expression.
+
+      typeof ""                 // Returns "string"
+      typeof "Anupan"          // Returns "string"
+      typeof "Anupam Rai"     // Returns "string"
+
+### Undefined
+- In JavaScript, a variable without a value, has the value ```undefined```. The type is also ```undefined```.
+- Any variable can be emptied, by setting the value to ```undefined```. The type will also be ```undefined```.
+- An empty value has nothing to do with ```undefined```.
+- An empty string has both a legal value and a type.
+
+      let car;                 // Value is undefined, type is undefined
+      car = undefined;        // Value is undefined, type is undefined
+      let car = "";          // The value is "", the typeof is "string"
+
+
+# Function
+- A JavaScript ```function``` is a block of code designed to perform a particular task.
+- A JavaScript ```function``` is executed when "something" invokes it (calls it).
+- A JavaScript ```function``` is defined with the ```function``` keyword, followed by a name, followed by parentheses ().
+- Function names can contain letters, digits, underscores, and dollar signs (same rules as variables).
+- The code to be executed, by the ```function```, is placed inside curly brackets: {}
+- Function parameters are listed inside the parentheses () in the ```function``` definition.
+- Function arguments are the values received by the ```function``` when it is invoked.
+- Inside the ```function```, the arguments (the parameters) behave as local variables.
+
+      function number(a1, a2){
+      return a1 * a2;
+      }                  //function gives the product of two number
+   
+### Function Invocation
+- The code inside the function will execute when "something" ```invokes``` (calls) the function:
+    - When an event occurs (when a user clicks a button)
+    - When it is invoked (called) from JavaScript code
+    - Automatically (self invoked)   
+
+### Function Return
+- When JavaScript reaches a ```return``` statement, the function will stop executing.
+- If the function was invoked from a statement, JavaScript will ```"return"``` to execute the code after the invoking statement.
+- Functions often compute a ```return``` value. The ```return``` value is ```"returned"``` back to the "caller".
+
+      let x = myFunction(2, 4);
+      function myFunction(a, b){
+      return a * b;
+      }
+      
+### Local Variables
+- Variables declared within a JavaScript function, become ```LOCAL``` to the function.
+- Local variables can only be accessed from within the function.
+- Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.
+- Local variables are created when a function starts, and deleted when the function is completed.
+
+# Js-Objects
+- In real life, a Bike is an ```object```.
+- A Bike has properties like weight and color, and methods like start and stop.
+- All Bikes have the same properties, but the property values differ from Bike to Bike.
+- All Bikes have the same methods, but the methods are performed at different times.
+
