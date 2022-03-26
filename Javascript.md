@@ -110,7 +110,7 @@
       
       let x = 5;   // I will be executed
 
-      x = 6;  // I will NOT be executed
+      // x = 6;   I will NOT be executed
     
 ### Identifiers
 - Identifiers are names.
