@@ -56,3 +56,33 @@
 # What is rendering a component?
 - Back Example of React application has a component called Car, which returns an `<h2>` element.
 - To use of this component in your application, use similar syntax as normal HTML: `<Car />`
+
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<Car />);
+
+# What is Props?
+- Props are like function arguments, and you send them into the component as attributes in html.
+- Components can be passed as props, which stands for properties.
+- They are used to transfer data from one component to the next (parent component to child component).
+- They are typically used to render dynamically generated data.
+
+            function Car(props) {
+            return <h2>I am a {props.color} Car!</h2>;
+            }
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<Car color="red"/>);
+
+# How to Use CSS in React?
+- There are 3 ways to style a react application with CSS:
+   - Inline Styles
+   - External Styling
+   - CSS in JS
+
+# What is react event?
+- React has the same events as HTML: click, change, mouseover etc.
+- React events are written in camelCase syntax: `onClick` instead of `onclick`.
+- React event handlers are written inside curly braces: `onClick={damm}`  instead of `onClick="damm()"`.
+- To pass an argument to an event handler, use an arrow function.
+
+# what is react list?
+- In React, you will render lists with some type of loop. The JS map() array method is generally the preferred method.
