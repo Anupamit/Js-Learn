@@ -60,6 +60,7 @@
             const root = ReactDOM.createRoot(document.getElementById('root'));
             root.render(<Car />);
 
+
 # What is Props?
 - Props are like function arguments, and you send them into the component as attributes in html.
 - Components can be passed as props, which stands for properties.
@@ -71,6 +72,27 @@
             }
             const root = ReactDOM.createRoot(document.getElementById('root'));
             root.render(<Car color="red"/>);
+
+# What is State in React?
+- State is a built-in React Object that is used to create and manage data within our components.
+  It differs from props in that it is used to store data rather than pass data.
+- State is mutable (data can change) and accessible through this.state().
+
+            class App extends React.Component {
+            constructor(props) {
+            super(props);
+            this.state = {
+                  name: "John Doe"
+            };
+            }
+            render() {
+            return (
+                  <div>
+                  <h1>My name is {this.state.name}</h1>
+                  </div>
+            );
+            }
+            }
 
 # How to Use CSS in React?
 - There are 3 ways to style a react application with CSS:
@@ -85,4 +107,27 @@
 - To pass an argument to an event handler, use an arrow function.
 
 # what is react list?
-- In React, you will render lists with some type of loop. The JS map() array method is generally the preferred method.
+- In React, you will render lists with some type of loop. In the array method map() is generally the preferred method.
+
+# What is use of Keys in react?
+- Keys allow React to keep track of elements. 
+- If an item is updated or removed, only that item will be re-rendered instead of the entire list.
+- Keys need to be unique to each sibling. But they can be duplicated globally.
+
+# What is Redux?
+-Redux is a popular open-source JavaScript library for managing and centralizing application state.
+  It is commonly used with React or any other view-library.
+
+# What is React Router?
+-React router is a standard library used in React applications to handle routing and 
+ allow navigation between views of various components.
+
+# What is React context?
+- React context allows us to pass down and use (consume) data in whatever component 
+  we need in our React app without using props.
+
+# What is Hooks?
+- Hooks were added to React in version 16.8.
+- Hooks can only be called inside React function components.
+- Hooks can only be called at the top level of a component.
+- Hooks cannot be conditional.
