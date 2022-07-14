@@ -114,13 +114,16 @@
 - If an item is updated or removed, only that item will be re-rendered instead of the entire list.
 - Keys need to be unique to each sibling. But they can be duplicated globally.
 
+# what is memo?
+- Using memo will cause React to skip rendering a component if its props have not changed.This can improve performance.
+
 # What is Redux?
--Redux is a popular open-source JavaScript library for managing and centralizing application state.
+- Redux is a popular open-source JavaScript library for managing and centralizing application state.
   It is commonly used with React or any other view-library.
 
 # What is React Router?
--React router is a standard library used in React applications to handle routing and 
- allow navigation between views of various components.
+- React router is a standard library used in React applications to handle routing and 
+  allow navigation between views of various components.
 
 # What is React context?
 - React context allows us to pass down and use (consume) data in whatever component 
@@ -131,3 +134,85 @@
 - Hooks can only be called inside React function components.
 - Hooks can only be called at the top level of a component.
 - Hooks cannot be conditional.
+
+# what is useState?
+- The React useState Hook allows us to track state in a function component.
+- State generally refers to data or properties that need to be tracking in an application.
+- useState accepts an initial state and returns two values:
+      - The current state.
+      - A function that updates the state.
+
+            import { useState } from "react";
+            function FavoriteColor() {
+              const [color, setColor] = useState("");
+            }
+
+# what is useEffect?
+- The useEffect Hook allows you to perform side effects in your components.
+- Some of side effects are: fetching data, directly updating the DOM, and timers.
+- useEffect accepts two arguments. The second argument is optional.
+      - useEffect(<function>), 
+      - useEffect(<dependency>)
+- useEffect runs on every render. That means that when the count changes, a render happens,
+   which then triggers another effect.
+1. No dependency passed:
+            useEffect(() => {
+              //Runs on every render
+            });
+
+2. An empty array: Only run the effect on the initial render.
+            useEffect(() => {
+              //Runs only on the first render
+            }, [])
+
+3. Props or state values: Here useEffect Hook that is dependent on a variable.
+            useEffect(() => {
+              //Runs on the first render
+              //And any time any dependency value changes
+            }, [prop, state]);
+
+
+            import { useState, useEffect } from "react";
+            import ReactDOM from "react-dom/client";
+
+            function Timer() {
+              const [count, setCount] = useState(0);
+              useEffect(() => {
+                setTimeout(() => {
+                  setCount((count) => count + 1);
+                }, 1000);
+              });
+              return <h1>I've rendered {count} times!</h1>;
+            }
+
+# what is useRef?
+- The useRef Hook allows you to persist values between renders.
+- If we tried to count how many times our application renders using the useState Hook,
+  we would be caught in an infinite loop since this Hook itself causes a re-render.To avoid this, we can use the useRef Hook.
+- useRef() only returns one item. It returns an Object called current. When we initialize useRef we set the initial value:    `useRef(0).`
+- The useRef Hook can also be used to keep track of `previous state values`. This is because we are able to persist useRef values between renders.
+
+
+# what is useReducer?
+- The useReducer Hook is similar to the useState Hook. It allows for custom state logic.
+- If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.
+- The useReducer Hook accepts two arguments.
+      - useReducer(<reducer>, <initialState>)
+
+# what is useCallback?
+- The React useCallback Hook returns a memoized callback function.
+- The useCallback Hook only runs when one of its dependencies update.
+
+# what is useMemo?
+- The React useMemo Hook returns a memoized value.
+- Think of memoization as caching a value so that it does not need to be recalculated.
+- The useMemo Hook only runs when one of its dependencies update.This can improve performance.
+
+# what is difference between useCallback and useMemo?
+- The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a
+  memoized value and useCallback returns a memoized function. 
+
+# what is custom hooks?
+- Hooks are reusable functions.
+- When you have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook.
+- Custom Hooks start with "use". Example: useFetch
