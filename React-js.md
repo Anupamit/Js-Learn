@@ -1,6 +1,32 @@
 # Table of Contents
 
 - [React](#What-is-React?)
+- [Dom](#What-is-Dom?)
+- [ES6](#What-is-ES6?)
+- [Jsx](#What-is-JSX?)
+- [Components](#What-are-Components?)
+- [ClassComponents](#What-is-a-Class-Component?)
+- [FunctionalComponents](#What-is-a-Functional-Component?)
+- [Rendering](#What-is-rendering-a-component?)
+- [Props](#What-is-Props?)
+- [State](#What-is-State-in-React?)
+- [ReactCss](#How to Use CSS in React?)
+- [Event](#What-is-react-event?)
+- [List](#what-is-react-list?)
+- [UseofKeys](#What-is-use-of-Keys-in-react?)
+- [Memo](#What-is-memo?)
+- [Redux](#What-is-Redux?)
+- [React-Router](#What-is-React-Router?)
+- [React-Contaxt](#What-is-React-Context?)
+- [Hooks](#What-is-Hooks?)
+- [useState](#What-is-useState?)
+- [useEffect](#What-is-useEffect?)
+- [useRef](#What-is-useRef?)
+- [useReducer](#What-is-useReducer?)
+- [useCallback](#What-is-useCallback?)
+- [useMemo](#What-is-useMemo?)
+- [Diff-useCallback-useMemo](#what-is-difference-between-useCallback-and-useMemo?)
+- [Custom-Hooks](#What-is-custom-hooks?)
 
 # What is React?
 - React is refer as js framework.
@@ -9,10 +35,69 @@
 - It's work as Virtual Dom in memory.
 - It's use as unidirectional one way data binding.
 
-# what is Dom?
+# What is Dom?
 - Dom is stand for Document Object model.
 - The representation of entire user interface of a web application as a tree data structure.
 - It's classify as two parts (a)Virtual Dom  (b)Real Dom
+
+# What is ES6?
+- ES6 stands for ECMAScript 6.
+    ## Classes
+    - A class is a type of function, but instead of using the keyword function to initiate it,
+     we use the keyword class, and the properties are assigned inside a constructor() method.
+    - Methods of classes
+      - To create a class inheritance, use the `extends` keyword.
+      - The `super()` method refers to the parent class.
+                class Car {
+                  constructor(name) {
+                    this.brand = name;
+                  }
+                }
+                const mycar = new Car("Ford");
+      - With a regular function, this represents the object that called the function.
+
+    ## Arrow Functions
+    - Arrow functions allow us to write shorter function syntax.
+                  hello = () => {
+                      return "Hello World!";
+                  }
+        
+    ## Variables
+      ### Var
+      - If you use var outside of a function, it belongs to the global scope.
+      - If you use var inside of a function, it belongs to that function.
+      - If you use var inside of a block, i.e. a for loop, the variable is still available outside of that block.
+      - var has a function scope, not a block scope.
+
+      ### Let
+      - let is the block scoped version of var, and is limited to the block (or expression) where it is defined.
+      - If you use let inside of a block, i.e. a for loop, the variable is only available inside of that loop.
+      - let has a block scope.
+
+      ### Const
+      - const is a variable that once it has been created, its value can never change.
+      - const has a block scope.
+      
+    ## Destructuring
+    - When destructuring arrays, the order that variables are declared is important.
+                  const vehicles = ['mustang', 'f-150', 'expedition'];
+                  const [car, truck, suv] = vehicles;
+
+    ## Spread Operator
+    - The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+                  const numbersOne = [1, 2, 3];
+                  const numbersTwo = [4, 5, 6];
+                  const numbersCombined = [...numbersOne, ...numbersTwo];
+    ## Modules
+    - JavaScript modules allow you to break up your code into separate files.
+    - This makes it easier to maintain the code-base.
+    - ES Modules rely on the import and export statements.
+
+    ## Ternary Operator
+    - The ternary operator is a simplified conditional operator like if / else.
+    - Syntax: `condition ? <expression if true> : <expression if false>`
+
+                  authenticated ? renderApp() : renderLogin();
 
 # What is JSX?
 - JSX enables and simplifies the creation of HTML in React.
@@ -106,7 +191,7 @@
 - React event handlers are written inside curly braces: `onClick={damm}`  instead of `onClick="damm()"`.
 - To pass an argument to an event handler, use an arrow function.
 
-# what is react list?
+# What is react list?
 - In React, you will render lists with some type of loop. In the array method map() is generally the preferred method.
 
 # What is use of Keys in react?
@@ -114,7 +199,7 @@
 - If an item is updated or removed, only that item will be re-rendered instead of the entire list.
 - Keys need to be unique to each sibling. But they can be duplicated globally.
 
-# what is memo?
+# What is memo?
 - Using memo will cause React to skip rendering a component if its props have not changed.This can improve performance.
 
 # What is Redux?
@@ -135,7 +220,7 @@
 - Hooks can only be called at the top level of a component.
 - Hooks cannot be conditional.
 
-# what is useState?
+# What is useState?
 - The React useState Hook allows us to track state in a function component.
 - State generally refers to data or properties that need to be tracking in an application.
 - useState accepts an initial state and returns two values:
@@ -147,7 +232,7 @@
               const [color, setColor] = useState("");
             }
 
-# what is useEffect?
+# What is useEffect?
 - The useEffect Hook allows you to perform side effects in your components.
 - Some of side effects are: fetching data, directly updating the DOM, and timers.
 - useEffect accepts two arguments. The second argument is optional.
@@ -185,7 +270,7 @@
               return <h1>I've rendered {count} times!</h1>;
             }
 
-# what is useRef?
+# What is useRef?
 - The useRef Hook allows you to persist values between renders.
 - If we tried to count how many times our application renders using the useState Hook,
   we would be caught in an infinite loop since this Hook itself causes a re-render.To avoid this, we can use the useRef Hook.
@@ -193,17 +278,17 @@
 - The useRef Hook can also be used to keep track of `previous state values`. This is because we are able to persist useRef values between renders.
 
 
-# what is useReducer?
+# What is useReducer?
 - The useReducer Hook is similar to the useState Hook. It allows for custom state logic.
 - If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.
 - The useReducer Hook accepts two arguments.
       - useReducer(<reducer>, <initialState>)
 
-# what is useCallback?
+# What is useCallback?
 - The React useCallback Hook returns a memoized callback function.
 - The useCallback Hook only runs when one of its dependencies update.
 
-# what is useMemo?
+# What is useMemo?
 - The React useMemo Hook returns a memoized value.
 - Think of memoization as caching a value so that it does not need to be recalculated.
 - The useMemo Hook only runs when one of its dependencies update.This can improve performance.
@@ -212,7 +297,7 @@
 - The useMemo and useCallback Hooks are similar. The main difference is that useMemo returns a
   memoized value and useCallback returns a memoized function. 
 
-# what is custom hooks?
+# What is custom hooks?
 - Hooks are reusable functions.
 - When you have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook.
 - Custom Hooks start with "use". Example: useFetch
